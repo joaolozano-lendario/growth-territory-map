@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🗺️</text></svg>" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Mapa Epistêmico Territorial de Growth Hacking" />
+    <meta name="theme-color" content="#030810" />
+    <title>Growth Hacking | Mapa do Território</title>
+
+    <!-- Tailwind via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              display: ['Space Grotesk', 'system-ui', 'sans-serif'],
+              body: ['DM Sans', 'system-ui', 'sans-serif'],
+              mono: ['JetBrains Mono', 'monospace'],
+            },
+            colors: {
+              cold: {
+                bg: '#030810',
+                'bg-alt': '#050b14',
+                accent: '#06b6d4',
+              },
+              cool: {
+                bg: '#050b14',
+                'bg-alt': '#0a1525',
+                accent: '#3b82f6',
+              },
+              neutral: {
+                bg: '#0f172a',
+                'bg-alt': '#1e293b',
+                accent: '#64748b',
+              },
+              warm: {
+                bg: '#1a1a2e',
+                'bg-alt': '#252540',
+                accent: '#a855f7',
+              },
+              hot: {
+                bg: '#1a0a0a',
+                'bg-alt': '#2a1515',
+                accent: '#f97316',
+              },
+              growth: {
+                emerald: '#10b981',
+                cyan: '#06b6d4',
+                orange: '#f97316',
+                purple: '#a855f7',
+              }
+            },
+            animation: {
+              'fade-in': 'fadeIn 1s ease-out forwards',
+              'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
+              'pulse-glow': 'pulseGlow 2s ease-in-out infinite',
+            },
+            keyframes: {
+              fadeIn: {
+                '0%': { opacity: '0' },
+                '100%': { opacity: '1' },
+              },
+              fadeInUp: {
+                '0%': { opacity: '0', transform: 'translateY(30px)' },
+                '100%': { opacity: '1', transform: 'translateY(0)' },
+              },
+              pulseGlow: {
+                '0%, 100%': { opacity: '0.5' },
+                '50%': { opacity: '1' },
+              },
+            },
+          }
+        }
+      }
+    </script>
+
+    <style>
+      :root {
+        --cold-bg: #030810;
+        --cold-accent: #06b6d4;
+        --cool-bg: #050b14;
+        --cool-accent: #3b82f6;
+        --neutral-bg: #0f172a;
+        --neutral-accent: #64748b;
+        --warm-bg: #1a1a2e;
+        --warm-accent: #a855f7;
+        --hot-bg: #1a0a0a;
+        --hot-accent: #f97316;
+        --growth-emerald: #10b981;
+      }
+
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+
+      body {
+        font-family: 'DM Sans', system-ui, sans-serif;
+        background-color: var(--cold-bg);
+        color: #e2e8f0;
+        overflow-x: hidden;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+
+      ::-webkit-scrollbar { width: 8px; }
+      ::-webkit-scrollbar-track { background: var(--cold-bg); }
+      ::-webkit-scrollbar-thumb { background: rgba(6, 182, 212, 0.3); border-radius: 4px; }
+      ::-webkit-scrollbar-thumb:hover { background: rgba(6, 182, 212, 0.5); }
+
+      .font-display { font-family: 'Space Grotesk', system-ui, sans-serif; }
+      .font-mono { font-family: 'JetBrains Mono', monospace; }
+
+      .giant-number {
+        font-family: 'Space Grotesk', system-ui, sans-serif;
+        font-weight: 700;
+        line-height: 0.85;
+        letter-spacing: -0.05em;
+      }
+
+      .gradient-text {
+        background: linear-gradient(135deg, #06b6d4 0%, #10b981 50%, #06b6d4 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .gradient-text-warm {
+        background: linear-gradient(135deg, #a855f7 0%, #f97316 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .gradient-text-hot {
+        background: linear-gradient(135deg, #f97316 0%, #ef4444 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .glow-cyan { box-shadow: 0 0 40px rgba(6, 182, 212, 0.3); }
+      .glow-emerald { box-shadow: 0 0 40px rgba(16, 185, 129, 0.3); }
+      .glow-orange { box-shadow: 0 0 40px rgba(249, 115, 22, 0.3); }
+      .glow-purple { box-shadow: 0 0 40px rgba(168, 85, 247, 0.3); }
+      .text-glow-cyan { text-shadow: 0 0 40px rgba(6, 182, 212, 0.5); }
+      .text-glow-emerald { text-shadow: 0 0 40px rgba(16, 185, 129, 0.5); }
+
+      .section-cold { background: linear-gradient(180deg, #030810 0%, #050b14 100%); }
+      .section-cool { background: linear-gradient(180deg, #050b14 0%, #0a1525 100%); }
+      .section-neutral { background: linear-gradient(180deg, #0f172a 0%, #1e293b 100%); }
+      .section-warm { background: linear-gradient(180deg, #1a1a2e 0%, #252540 100%); }
+      .section-hot { background: linear-gradient(180deg, #1a0a0a 0%, #2a1515 100%); }
+
+      .animate-on-scroll {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+      }
+
+      .animate-on-scroll.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .card-hover { transition: transform 0.3s ease, box-shadow 0.3s ease; }
+      .card-hover:hover { transform: translateY(-4px); }
+
+      .progress-bar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 3px;
+        background: linear-gradient(90deg, #06b6d4, #10b981);
+        z-index: 10000;
+        transition: width 0.1s ease-out;
+      }
+
+      .grid-pattern {
+        background-image:
+          linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+        background-size: 60px 60px;
+      }
+
+      @media (max-width: 768px) {
+        .giant-number { font-size: 4rem !important; }
+      }
+
+      ::selection { background: rgba(6, 182, 212, 0.3); color: #fff; }
+      :focus-visible { outline: 2px solid #06b6d4; outline-offset: 2px; }
+
+      @media (prefers-reduced-motion: reduce) {
+        *, *::before, *::after {
+          animation-duration: 0.01ms !important;
+          animation-iteration-count: 1 !important;
+          transition-duration: 0.01ms !important;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
