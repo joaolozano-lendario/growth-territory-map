@@ -48,7 +48,7 @@ export function Section({ id, temperature, children, className = '', fullHeight 
       </div>
 
       {/* Content with animation trigger */}
-      <div className={`relative z-10 transition-opacity duration-1000 ${isInView ? 'opacity-100' : 'opacity-0'}`}>
+      <div className={`relative transition-opacity duration-1000 ${isInView ? 'opacity-100' : 'opacity-0'}`}>
         {children}
       </div>
     </section>
