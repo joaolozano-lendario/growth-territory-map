@@ -9,9 +9,10 @@ interface SectionProps {
   children: ReactNode;
   className?: string;
   fullHeight?: boolean;
+  noFade?: boolean;
 }
 
-export function Section({ id, temperature, children, className = '', fullHeight = false }: SectionProps) {
+export function Section({ id, temperature, children, className = '', fullHeight = false, noFade = false }: SectionProps) {
   const { ref, isInView } = useInView<HTMLElement>({ threshold: 0.1 });
 
   const bgClasses = {
@@ -47,8 +48,8 @@ export function Section({ id, temperature, children, className = '', fullHeight 
         )}
       </div>
 
-      {/* Content with animation trigger */}
-      <div className={`relative transition-opacity duration-1000 ${isInView ? 'opacity-100' : 'opacity-0'}`}>
+      {/* Content - fade animation only if noFade is false */}
+      <div className={`relative ${noFade ? '' : `transition-opacity duration-1000 ${isInView ? 'opacity-100' : 'opacity-0'}`}`}>
         {children}
       </div>
     </section>
